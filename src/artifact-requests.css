@@ -1,0 +1,71 @@
+.artifact-requests {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 20px;
+  min-width: 0;
+}
+.artifact-requests summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 0;
+}
+.artifact-requests form {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  padding: 10px 0;
+}
+.artifact-requests label {
+  display: grid;
+  gap: 6px;
+}
+.artifact-requests textarea,
+.artifact-requests select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.artifact-requests small {
+  color: var(--muted);
+}
+.artifact-requests button {
+  justify-self: start;
+}
+.artifact-requests summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.artifact-request-history {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.artifact-request-history li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.artifact-request-history strong {
+  flex: 1 1 240px;
+  white-space: pre-wrap;
+}
+.artifact-request-history li > details,
+.artifact-request-history li > p {
+  width: 100%;
+}
+.artifact-request-history .markdown-body {
+  padding: 12px 0;
+}
+@media (max-width: 768px) {
+  .artifact-requests {
+    padding: 10px 12px;
+  }
+  .artifact-requests summary,
+  .artifact-requests button,
+  .artifact-requests select,
+  .artifact-request-history a {
+    min-height: 44px;
+  }
+}

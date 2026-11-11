@@ -1,0 +1,28 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.4
+          cache: npm
+      - name: Install document conversion tools
+        timeout-minutes: 5
+        run: |
+          # Keep Ubuntu's archive signature checks while avoiding the Azure mirror.
+          printf '%s\n' 'https://mirrors.edge.kernel.org/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt
+          sudo apt-get update --error-on=any
+          sudo apt-get install -y --no-install-recommends poppler-utils libreoffice-writer libreoffice-impress
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run build
+      - run: npm test
