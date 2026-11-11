@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "id": "xangi-studio",
+  "displayName": "xangi-studio",
+  "description": "PR・資料・原稿を開き、レビューとxangiへの依頼を行う画面。",
+  "permissions": [
+    "指定したPR・リポジトリ・資料の読み取りと保存",
+    "AIレビューと会話ログの読み取り",
+    "保存済み成果物を添えたxangiへの依頼と結果の取得",
+    "ローカル原稿の手編集と保存",
+    "利用者の明示操作によるNotionへの保存"
+  ],
+  "version": "0.1.0",
+  "entrypoint": "scripts/xangi-extension",
+  "runtime": {
+    "kind": "managed-http"
+  },
+  "setup": {
+    "instructions": "XANGI_SETUP.md"
+  },
+  "update": {
+    "prepare": {
+      "command": "./scripts/prepare-update",
+      "args": []
+    }
+  },
+  "ui": {
+    "capability": "review.changes",
+    "path": "/ui"
+  },
+  "capabilities": [
+    {
+      "id": "review.changes",
+      "protocol": "http",
+      "healthPath": "/health"
+    }
+  ]
+}

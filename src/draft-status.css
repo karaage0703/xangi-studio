@@ -1,0 +1,77 @@
+/* Existing Studio tokens keep the same light/dark appearance. */
+.draft-status-bar {
+  position: fixed;
+  inset-inline: 0;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px calc(10px + env(safe-area-inset-bottom));
+  background: var(--surface);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -2px 8px var(--accent-soft);
+  font: 13px/1.5 var(--font-ui);
+}
+.draft-save-information {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+.draft-save-information [role="status"] {
+  font-weight: 600;
+}
+.status-failed [role="status"],
+.draft-save-error {
+  color: var(--red);
+}
+.draft-save-error {
+  overflow-wrap: anywhere;
+  max-width: 65ch;
+}
+.draft-save-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.draft-save-actions button {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  white-space: normal;
+}
+.artifact-shell:has(.draft-status-bar) {
+  padding-bottom: calc(var(--draft-bar-height, 160px) + 20px);
+}
+.main-panel:has(.draft-status-bar) {
+  padding-bottom: calc(var(--draft-bar-height, 160px) + 20px);
+}
+@media (max-width: 800px) {
+  .artifact-shell:has(.draft-status-bar),
+  .main-panel:has(.draft-status-bar) {
+    padding-bottom: 20px;
+  }
+  .draft-status-bar {
+    position: static;
+    flex-shrink: 0;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding-inline: 12px;
+    gap: 6px;
+  }
+  .draft-save-actions {
+    flex-shrink: 1;
+  }
+  .draft-save-actions button {
+    min-height: 44px;
+  }
+  .draft-save-error {
+    max-height: 3em;
+    overflow: auto;
+  }
+}

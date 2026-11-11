@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+repo_dir=$(CDPATH= cd -- "$script_dir/.." && pwd)
+
+if [ "${1:-}" != "serve" ]; then
+  echo '{"ok":false,"detail":"supported command: serve"}'
+  exit 1
+fi
+
+if [ ! -f "$repo_dir/dist/index.html" ]; then
+  echo "dist is missing; run npm ci && npm run build" >&2
+  exit 1
+fi
+
+exec node "$repo_dir/server/extension.mjs" "$@"
