@@ -44,8 +44,8 @@ See the [testing guide](docs/en/testing.md) for development and validation detai
 
 ```bash
 npm run format:check
-npm test
 npm run build
+npm test
 ```
 
 ## License

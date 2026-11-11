@@ -44,8 +44,8 @@ xangi extension doctor xangi-studio
 
 ```bash
 npm run format:check
-npm test
 npm run build
+npm test
 ```
 
 ## License
