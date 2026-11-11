@@ -17,7 +17,11 @@ jobs:
           cache: npm
       - name: Install document conversion tools
         timeout-minutes: 5
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils libreoffice-writer libreoffice-impress
+        run: |
+          # Keep Ubuntu's archive signature checks while avoiding the Azure mirror.
+          printf '%s\n' 'https://mirrors.edge.kernel.org/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt
+          sudo apt-get update --error-on=any
+          sudo apt-get install -y --no-install-recommends poppler-utils libreoffice-writer libreoffice-impress
       - run: npm ci
       - run: npm run format:check
       - run: npm run build
