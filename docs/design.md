@@ -143,3 +143,7 @@ SoftwareOverviewは既存CSSトークンとReactのテキスト描画で構成�
 画面は既存のタブ・配色・余白を保ち、読み込み中/失敗状態・再読み込みボタン・iframeタイトルを付けます。通信は15秒で失敗表示になり、画面切替で中断します。外部依存とモジュール解決・ビルド実行は扱わず、単体HTMLを推奨します。
 
 参考: [HTML Standardのsandbox](https://html.spec.whatwg.org/multipage/iframe-embed-object.html)、[CSP Level 3](https://www.w3.org/TR/CSP3/)。
+
+## managed時の永続領域
+
+managedデータは更新source外でinstance単位に保持する。保存先は明示指定またはinstance別の既定先で決める。更新準備は永続領域を検証してからbuildする。手順は[使い方](usage.md#永続データと更新)を参照。

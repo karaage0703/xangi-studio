@@ -18,7 +18,8 @@
   --orange: #a66512;
   --shadow: 0 18px 70px #17293d24;
   --font-ui:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans JP", sans-serif;
   --font-mono:
     "SFMono-Regular", Consolas, "Liberation Mono", "Noto Sans Mono", monospace;
   font-family: var(--font-ui);
@@ -130,17 +131,6 @@ svg {
 }
 .studio-brand:hover {
   text-decoration: none;
-}
-.studio-brand-mark {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--surface);
-  color: var(--accent-hover);
-  font-size: 18px;
 }
 .studio-primary-nav {
   display: flex;

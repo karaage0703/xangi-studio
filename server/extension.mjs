@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 import { ReviewJobs } from "./review-jobs.mjs";
 import { ReviewStore } from "./store.mjs";
 import { createServer } from "./http.mjs";
+import { managedDataDir } from "./data-path.mjs";
 
 const project = fileURLToPath(new URL("..", import.meta.url));
 const workspaceIndex = process.argv.indexOf("--workspace");
@@ -13,14 +14,7 @@ const workspace = resolve(
   workspaceIndex >= 0 ? process.argv[workspaceIndex + 1] : process.cwd(),
 );
 process.env.XANGI_REVIEW_WORKSPACE = workspace;
-const instance = (process.env.XANGI_EXTENSION_INSTANCE_ID ?? "default").replace(
-  /[^a-zA-Z0-9._-]/g,
-  "-",
-);
-const dataDir = resolve(
-  process.env.XANGI_REVIEW_DATA_DIR ??
-    resolve(project, ".state", `managed-${instance}`),
-);
+const dataDir = managedDataDir();
 const root = resolve(dataDir, "changes");
 const stateDir = resolve(dataDir, "state");
 const token = process.env.XANGI_EXTENSION_AUTH_TOKEN;

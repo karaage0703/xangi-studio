@@ -20,11 +20,13 @@ export function ArtifactLayout({
   const [compact, setCompact] = useState(
     () => matchMedia(compactQuery).matches,
   );
-  const [drawerOpen, setDrawerOpen] = useState(home);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(
     () => localStorage.getItem("studio-sidebar-collapsed") === "true",
   );
-  const listOpen = compact ? drawerOpen : !collapsed;
+  const inlineList = compact && home;
+  const listOpen = compact ? inlineList || drawerOpen : !collapsed;
+  const modalList = compact && listOpen && !inlineList;
   const toggleRef = useRef<HTMLButtonElement>(null);
   const asideRef = useRef<HTMLElement>(null);
   const closeList = () => {
@@ -58,32 +60,39 @@ export function ArtifactLayout({
       location.href = href;
     });
   return (
-    <div className="artifact-shell">
+    <div className="artifact-shell" data-mobile-home={inlineList}>
       <div className="artifact-topbar">
         <HostNavigation
           beforeHistory={beforeNavigate}
           onNavigate={(event) => {
             event.preventDefault();
-            navigate(event.currentTarget.href);
+            const home = event.currentTarget.href;
+            beforeNavigate(() => (window.top ?? window).location.assign(home));
           }}
         />
         <StudioHeader
           page={page}
           leading={
-            <button
-              ref={toggleRef}
-              type="button"
-              className="icon-button artifact-sidebar-toggle"
-              aria-label={listOpen ? "サイドバーを閉じる" : "サイドバーを開く"}
-              title={listOpen ? "サイドバーを閉じる" : "サイドバーを開く"}
-              aria-expanded={listOpen}
-              aria-controls="artifact-navigation"
-              onClick={() =>
-                compact ? setDrawerOpen(!drawerOpen) : setCollapsed(!collapsed)
-              }
-            >
-              ☰
-            </button>
+            !inlineList && (
+              <button
+                ref={toggleRef}
+                type="button"
+                className="icon-button artifact-sidebar-toggle"
+                aria-label={
+                  listOpen ? "サイドバーを閉じる" : "サイドバーを開く"
+                }
+                title={listOpen ? "サイドバーを閉じる" : "サイドバーを開く"}
+                aria-expanded={listOpen}
+                aria-controls="artifact-navigation"
+                onClick={() =>
+                  compact
+                    ? setDrawerOpen(!drawerOpen)
+                    : setCollapsed(!collapsed)
+                }
+              >
+                ☰
+              </button>
+            )
           }
           onNavigate={(event, href) => {
             event.preventDefault();
@@ -96,10 +105,11 @@ export function ArtifactLayout({
           id="artifact-navigation"
           ref={asideRef}
           hidden={!listOpen}
-          role={compact && listOpen ? "dialog" : undefined}
-          aria-modal={compact && listOpen ? true : undefined}
+          role={modalList ? "dialog" : undefined}
+          aria-modal={modalList ? true : undefined}
           aria-label="成果物一覧"
           onKeyDown={(event) => {
+            if (inlineList) return;
             if (event.key === "Escape") {
               event.preventDefault();
               closeList();
@@ -122,11 +132,14 @@ export function ArtifactLayout({
             }
           }}
         >
-          <ArtifactList onNavigate={navigate} onClose={closeList} />
+          <ArtifactList
+            onNavigate={navigate}
+            onClose={inlineList ? undefined : closeList}
+          />
         </aside>
         <div className="artifact-detail">{children}</div>
       </div>
-      {compact && listOpen && (
+      {modalList && (
         <button
           className="artifact-scrim"
           type="button"

@@ -2549,13 +2549,28 @@ function ProjectSummary({ project }: { project?: XangiProject }) {
   );
 }
 
-const preferredTheme = localStorage.getItem("xangi-theme");
-const darkTheme =
-  preferredTheme === "dark" ||
-  (preferredTheme !== "light" &&
-    matchMedia("(prefers-color-scheme: dark)").matches);
-document.documentElement.dataset.theme = darkTheme ? "dark" : "light";
-document.documentElement.style.colorScheme = darkTheme ? "dark" : "light";
+// Same-origin xangi appearance preference; no writes during initialization.
+(() => {
+  const media = matchMedia("(prefers-color-scheme: dark)");
+  const preference = () => {
+    try {
+      return localStorage.getItem("xangi-theme");
+    } catch {
+      return null;
+    }
+  };
+  const apply = () => {
+    const selected = preference();
+    const dark = selected === "dark" || (selected !== "light" && media.matches);
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    document.documentElement.style.colorScheme = dark ? "dark" : "light";
+  };
+  apply();
+  media.addEventListener("change", apply);
+  window.addEventListener("storage", (event) => {
+    if (event.key === "xangi-theme" || event.key === null) apply();
+  });
+})();
 
 // Keep bookmarks to the retired session view pointing to the host conversation.
 const legacySession = new URLSearchParams(location.search).get("session");

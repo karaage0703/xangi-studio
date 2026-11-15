@@ -40,26 +40,29 @@ export function HostNavigation({
       >
         →
       </button>
-      <a
-        className="xangi-home-button"
-        href="/"
-        aria-label="xangiホーム"
-        title="xangiホーム"
-        onClick={onNavigate}
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+      {window.self === window.top && (
+        <a
+          className="xangi-home-button"
+          href="/"
+          target="_top"
+          aria-label="xangiホーム"
+          title="xangiホーム"
+          onClick={onNavigate}
         >
-          <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
-        </svg>
-        <span>xangiホーム</span>
-      </a>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
+          </svg>
+          <span>xangiホーム</span>
+        </a>
+      )}
     </nav>
   );
 }

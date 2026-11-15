@@ -5,5 +5,13 @@ script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 repo_dir=$(CDPATH= cd -- "$script_dir/.." && pwd)
 
 cd "$repo_dir"
+node --input-type=module - <<'JS'
+import { realpath } from 'node:fs/promises';
+import { isAbsolute, relative } from 'node:path';
+const path = process.env.XANGI_REVIEW_DATA_DIR;
+if (!path || !isAbsolute(path)) throw new Error('Set XANGI_REVIEW_DATA_DIR to a verified absolute persistent directory before updating.');
+const rel = relative(await realpath('.'), await realpath(path));
+if (rel !== '..' && !rel.startsWith('../')) throw new Error('Studio data must be outside the updated source directory.');
+JS
 npm ci
 npm run build
