@@ -26,8 +26,7 @@
   width: 44px;
   padding: 0;
 }
-.artifact-topbar .xangi-home-button span,
-.artifact-topbar .studio-brand {
+.artifact-topbar .xangi-home-button span {
   display: none;
 }
 .artifact-topbar .studio-topbar {
@@ -315,4 +314,77 @@
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
   }
+}
+
+/* On mobile the starting page is the list itself, not an open modal drawer. */
+.artifact-shell[data-mobile-home="true"] .artifact-layout {
+  display: block;
+  overflow: auto;
+}
+.artifact-shell[data-mobile-home="true"] #artifact-navigation {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  padding: 12px 16px;
+  box-shadow: none;
+  border: 0;
+  overflow: visible;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-detail {
+  display: none;
+}
+.artifact-shell[data-mobile-home="true"]
+  .studio-primary-nav
+  a[aria-current="page"] {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .artifact-topbar .studio-brand {
+    font-size: 18px;
+    gap: 0;
+  }
+  .artifact-topbar .studio-primary-nav a {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .artifact-topbar .studio-primary-nav a:first-child {
+    display: none;
+  }
+}
+.artifact-shell[data-mobile-home="true"] .artifact-list {
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-list-heading {
+  grid-column: 1;
+  align-self: center;
+  margin: 0;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-import {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 44px;
+  padding: 10px 0;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-list > label,
+.artifact-shell[data-mobile-home="true"] .artifact-list > ul,
+.artifact-shell[data-mobile-home="true"] .artifact-list > p {
+  grid-column: 1 / -1;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-list > label {
+  margin-top: 0;
+}
+.artifact-shell[data-mobile-home="true"] .artifact-list > ul {
+  margin: 0;
 }

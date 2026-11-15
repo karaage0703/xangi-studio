@@ -143,3 +143,7 @@ Authenticated POST /api/html-previews stores assembled HTML up to 1MB in memory 
 The existing tabs, colors and spacing remain. Loading/error states, a reload button and an iframe title make state and actions explicit. Requests time out after fifteen seconds and abort on navigation. External dependencies, module resolution and project builds are not performed; prefer self-contained HTML.
 
 References: [HTML Standard sandbox](https://html.spec.whatwg.org/multipage/iframe-embed-object.html), [CSP Level 3](https://www.w3.org/TR/CSP3/).
+
+## Managed persistence
+
+Managed data is instance-scoped outside updated source. The destination is explicit or instance-scoped by default. Update preparation checks the destination before building. See [storage and updates](usage.md#persistent-data-and-updates).

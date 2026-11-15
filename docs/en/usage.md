@@ -139,7 +139,7 @@ The host executes a normal Agent Run. Collection continues after closing the bro
 
 ## Navigation
 
-The shared top navigation contains Artifacts and Settings. Import PRs/documents is available in the artifact sidebar.
+Desktop top navigation contains Artifacts and Settings. On phones the landing page is the list itself, with Settings in the top row. Use the list button when viewing an artifact. Import PRs/documents is available in the artifact sidebar.
 
 Use Artifacts in the shared navigation to return from an artifact to the list. Unsaved edits require confirmation before leaving.
 
@@ -161,7 +161,7 @@ Imports use GitHub CLI/gog and Poppler/LibreOffice. Requests use normal host Age
 
 In the regular file view, navigation and controls scroll with the content. Return to the top or bottom of the page to switch modes or save. PR and repository overviews keep their existing pane layout.
 
-Home, history, artifact navigation and settings share one navigation row. Open the file list with the arrow next to the filename. Expand the Notion save help to read the additional guidance.
+Inside the host, use its shared Home/Back/Forward controls without duplicate extension controls. Artifact navigation, settings, and sidebar controls remain in the extension. Standalone managed views retain Home and history controls. Open the file list with the arrow next to the filename. Expand the Notion save help to read the additional guidance.
 
 ## GitHub repository imports
 
@@ -202,3 +202,15 @@ Display renders HTML and HTM as pages, including HTML selected in the repository
 Self-contained HTML with styles/scripts and relative CSS, classic JavaScript and SVG references registered in the same import/revision are supported. External sites, CDNs, APIs, form submission, parent-page access and browser storage are blocked. Preview interactions and game progress are not persisted. JavaScript importing other modules and sources requiring a build are outside this preview; open a built self-contained HTML file. Missing images and external references are listed as unavailable.
 
 The assembled HTML and related source files each have a 1MB limit. Temporary previews expire after ten minutes and are limited to twenty entries. Reload preview recreates an expired or failed preview. Creating a preview does not write source files, drafts or history.
+
+The mobile landing page shows the artifact list directly, without opening a modal drawer on startup. After opening an artifact, use the list button to open or close the drawer.
+
+## Persistent data and updates
+
+Managed data defaults to xangi-studio/instance-<instance-id> under XDG_STATE_HOME, or ~/.local/state when unset. Explicit XANGI_REVIEW_DATA_DIR remains supported. The destination is explicit or uses this default.
+
+If saved drafts or settings are missing or another unexpected state occurs, the responsible AI inspects the actual destination, environment variables, logs, and stored data. Preserve data and correct the destination as needed, then verify startup, doctor, and retrieval of drafts, reviews, and Notion settings.
+
+Host-managed preparation verifies that this persistent directory exists outside source before npm ci/build. Unset, missing, or source-local destinations fail preparation and permit host rollback. No automatic data migration occurs. Embedded screens omit duplicate Home while retaining document history controls.
+
+Required host features: managed HTTP schema 2, agent-runs, agents/projects, runtime-settings, and repository-managed updates. Verification against a real host version has not been performed. Distinguish mock/unit checks from runtime verification and record tested host versions and unknowns.

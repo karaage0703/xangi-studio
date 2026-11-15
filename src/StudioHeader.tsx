@@ -32,9 +32,6 @@ export function StudioHeader({
         href={workspacePath}
         onClick={(event) => navigate(event, workspacePath)}
       >
-        <span aria-hidden="true" className="studio-brand-mark">
-          x
-        </span>
         <span>xangi-studio</span>
       </a>
       <nav className="studio-primary-nav" aria-label="xangi-studioの画面">

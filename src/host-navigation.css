@@ -52,3 +52,8 @@
   opacity: 0.35;
   cursor: default;
 }
+
+/* The host owns Home and browser history inside its extension frame. */
+:root[data-xangi-embedded="true"] .xangi-host-nav {
+  display: none;
+}
