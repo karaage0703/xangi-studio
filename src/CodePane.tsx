@@ -19,7 +19,11 @@ function language(file: string) {
 }
 
 const theme = EditorView.theme({
-  "&": { height: "100%", fontSize: "14px", background: "var(--surface)" },
+  "&": {
+    height: "100%",
+    fontSize: "var(--xangi-font-code)",
+    background: "var(--surface)",
+  },
   ".cm-scroller": {
     fontFamily: "var(--font-mono)",
     overflow: "auto",
@@ -38,7 +42,7 @@ const theme = EditorView.theme({
   ".cm-activeLine": { backgroundColor: "rgb(120 119 116 / 9%)" },
   ".cm-activeLineGutter": { backgroundColor: "var(--subtle)" },
   "@media (max-width: 800px)": {
-    "&": { fontSize: "16px" },
+    "&": { fontSize: "var(--xangi-font-reading)" },
     ".cm-line": { padding: "0 10px" },
   },
 });

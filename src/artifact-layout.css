@@ -52,7 +52,7 @@
 .artifact-topbar .studio-primary-nav a {
   min-height: 44px;
   padding: 0 8px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .artifact-layout {
   display: grid;
@@ -69,14 +69,14 @@
   padding: 18px 12px;
 }
 .artifact-list h2 {
-  font-size: 16px;
+  font-size: var(--xangi-font-section);
   margin: 0 0 16px;
 }
 .artifact-list label {
   display: grid;
   gap: 8px;
   margin-top: 18px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .artifact-list input {
   width: 100%;
@@ -101,7 +101,7 @@
   border-radius: 6px;
   color: var(--ink);
   overflow-wrap: anywhere;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
 }
 .artifact-list .workspace-artifacts a:hover {
   background: var(--subtle);
@@ -112,7 +112,7 @@
 }
 .artifact-list .workspace-artifacts span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .artifact-detail {
   min-width: 0;
@@ -126,7 +126,7 @@
   padding: 32px;
 }
 .artifact-welcome h1 {
-  font-size: 22px;
+  font-size: var(--xangi-font-heading);
 }
 .detail-file-controls {
   padding: 8px 16px;
@@ -343,14 +343,14 @@
 
 @media (max-width: 900px) {
   .artifact-topbar .studio-brand {
-    font-size: 18px;
+    font-size: var(--xangi-font-heading);
     gap: 0;
   }
   .artifact-topbar .studio-primary-nav a {
     border: 1px solid var(--line);
     border-radius: 6px;
     padding: 0 12px;
-    font-size: 14px;
+    font-size: var(--xangi-font-ui);
     font-weight: 400;
     display: inline-flex;
     align-items: center;

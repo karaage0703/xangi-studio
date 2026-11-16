@@ -1,6 +1,19 @@
 /* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4 */
 /* Tokens inherited from the existing xangi workspace. */
 :root {
+  /* xangi filer typography: UI, secondary, counts, headings, reading, code. */
+  --xangi-font-ui: 13px;
+  --xangi-font-caption: 12px;
+  --xangi-font-micro: 11px;
+  --xangi-font-heading: 18px;
+  --xangi-font-section: 16px;
+  --xangi-font-reading: 16px;
+  --xangi-font-code: 13px;
+  --xangi-font-metric: 24px;
+  --xangi-font-family:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans JP", sans-serif;
+
   --canvas: #f7f6f3;
   --surface: #fff;
   --subtle: #f1f0ed;
@@ -24,7 +37,7 @@
     "SFMono-Regular", Consolas, "Liberation Mono", "Noto Sans Mono", monospace;
   font-family: var(--font-ui);
   color: var(--ink);
-  font-size: 14px;
+  font-size: var(--xangi-font-code);
   background: var(--canvas);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -126,7 +139,7 @@ svg {
   flex: 0 0 auto;
   color: var(--ink);
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--xangi-font-heading);
   white-space: nowrap;
 }
 .studio-brand:hover {
@@ -174,7 +187,7 @@ svg {
   }
   .studio-primary-nav a {
     padding: 0 10px;
-    font-size: 12px;
+    font-size: var(--xangi-font-ui);
   }
   .studio-header-actions {
     margin-left: auto;
@@ -185,7 +198,7 @@ svg {
   align-items: center;
   gap: 10px;
   color: var(--ink);
-  font-size: 20px;
+  font-size: var(--xangi-font-heading);
   letter-spacing: -0.7px;
 }
 .brand:hover {
@@ -208,7 +221,7 @@ svg {
 .header-context {
   margin-left: auto;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -244,7 +257,7 @@ svg {
   align-items: center;
   justify-content: space-between;
   padding: 0 12px 18px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 650;
 }
 .count {
@@ -252,7 +265,7 @@ svg {
   background: var(--line);
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .search-box {
   display: flex;
@@ -273,7 +286,7 @@ svg {
   background: transparent;
   outline-offset: 0;
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   padding: 9px 0;
 }
 .file-list {
@@ -345,7 +358,7 @@ svg {
   padding: 0 7px;
   border-radius: 6px;
   color: var(--accent);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .change-set-review:hover {
   background: var(--subtle);
@@ -376,17 +389,17 @@ svg {
 }
 .change-set-kicker strong {
   color: var(--accent);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 650;
 }
 .change-set-kicker > span,
 .change-set-detail small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
 }
 .change-set-title {
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 550;
   line-height: 1.5;
   overflow-wrap: anywhere;
@@ -429,18 +442,18 @@ svg {
   gap: 6px;
 }
 .file-detail strong {
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 .file-detail > span {
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 .file-detail small {
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
   display: flex;
   gap: 6px;
@@ -455,7 +468,7 @@ svg {
   margin: auto 8px 0;
   padding-top: 14px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .sidebar-settings:hover {
   color: var(--ink);
@@ -463,7 +476,7 @@ svg {
 .empty-list {
   padding: 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .main-panel {
   display: flex;
@@ -486,7 +499,7 @@ svg {
   align-items: center;
   gap: 10px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .file-path > span {
   overflow-wrap: anywhere;
@@ -529,7 +542,7 @@ svg {
   padding: 0 12px;
   color: var(--muted);
   border-radius: 6px;
-  font-size: 12px;
+  font-size: var(--xangi-font-ui);
 }
 .share-button {
   border: 1px solid var(--line);
@@ -549,7 +562,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
   font-weight: 550;
   padding: 4px 7px;
   background: var(--canvas);
@@ -560,7 +573,7 @@ svg {
 }
 .review-title {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -569,7 +582,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 3px;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   margin-left: auto;
   white-space: nowrap;
 }
@@ -592,7 +605,7 @@ svg {
   gap: 7px;
   padding: 0 2px;
   min-height: 44px;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   color: var(--muted);
   border-bottom: 2px solid transparent;
 }
@@ -608,7 +621,7 @@ svg {
   display: flex;
   gap: 9px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 550;
 }
 .added {
@@ -630,25 +643,25 @@ svg {
   max-width: 820px;
   margin: 0 auto;
   padding: 42px 50px 70px;
-  font-size: 16px;
+  font-size: var(--xangi-font-reading);
   line-height: 2;
   overflow-wrap: anywhere;
 }
 .markdown-body h1 {
-  font-size: 30px;
+  font-size: var(--xangi-font-metric);
   line-height: 1.5;
   letter-spacing: -0.8px;
   font-weight: 650;
   margin: 0 0 25px;
 }
 .markdown-body h2 {
-  font-size: 20px;
+  font-size: var(--xangi-font-heading);
   font-weight: 600;
   margin: 36px 0 16px;
   line-height: 1.6;
 }
 .markdown-body h3 {
-  font-size: 17px;
+  font-size: var(--xangi-font-section);
   margin-top: 28px;
 }
 .markdown-body p {
@@ -669,7 +682,7 @@ svg {
   border-left: 3px solid var(--line);
   color: var(--muted);
   background: var(--canvas);
-  font-size: 14px;
+  font-size: var(--xangi-font-reading);
 }
 .markdown-body blockquote p {
   margin: 0;
@@ -740,14 +753,14 @@ svg {
   color: var(--muted);
   background: var(--canvas);
   border-bottom: 1px solid var(--line);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .compare-heading > span:first-child {
   min-width: 45%;
 }
 .inline-label {
   margin-left: auto;
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
 }
 .save-bar {
   min-height: 75px;
@@ -769,7 +782,7 @@ svg {
   display: flex;
   gap: 6px;
   align-items: center;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
   white-space: nowrap;
 }
@@ -785,7 +798,7 @@ svg {
 .file-metrics {
   display: flex;
   gap: 8px;
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
 }
 .save-controls {
@@ -804,7 +817,7 @@ svg {
   min-height: 44px;
   border-radius: 7px;
   padding: 0 16px;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   font-weight: 550;
 }
 .save-button:hover:not(:disabled) {
@@ -815,7 +828,7 @@ svg {
 }
 .save-button kbd {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: var(--xangi-font-ui);
   margin-left: 12px;
   opacity: 0.8;
 }
@@ -824,7 +837,7 @@ svg {
   align-items: center;
   gap: 8px;
   padding: 10px 26px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   line-height: 1.7;
   flex-shrink: 0;
 }
@@ -844,7 +857,7 @@ svg {
 }
 .conflict-actions button {
   color: var(--red);
-  font-size: 11px;
+  font-size: var(--xangi-font-ui);
 }
 .loading-state,
 .empty-state {
@@ -860,7 +873,7 @@ svg {
 }
 .empty-state h1 {
   color: var(--ink);
-  font-size: 20px;
+  font-size: var(--xangi-font-heading);
   margin: 0;
 }
 .empty-state p {
@@ -906,7 +919,7 @@ svg {
 }
 .modal-heading h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: var(--xangi-font-section);
   font-weight: 600;
 }
 .modal-heading .icon-button {
@@ -914,7 +927,7 @@ svg {
 }
 .modal-description {
   color: var(--muted);
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   line-height: 1.9;
   margin: 12px 0 20px;
 }
@@ -923,7 +936,7 @@ svg {
   border-radius: 6px;
   color: var(--red);
   background: var(--red-soft);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   line-height: 1.6;
 }
 .settings-field {
@@ -931,12 +944,12 @@ svg {
   flex-direction: column;
   gap: 8px;
   margin-bottom: 12px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 600;
 }
 .settings-field b {
   color: var(--red);
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
   margin-left: 4px;
 }
 .settings-field select {
@@ -963,11 +976,11 @@ svg {
 }
 .project-summary dt {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
 }
 .project-summary dd {
   margin: 4px 0 0;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   overflow-wrap: anywhere;
 }
 .reviewer-settings {
@@ -979,13 +992,13 @@ svg {
 .archived-settings h3 {
   padding: 0;
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--xangi-font-ui);
   font-weight: 650;
 }
 .reviewer-settings > p {
   margin: 6px 0 10px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .reviewer-project-list {
   max-height: 220px;
@@ -1025,13 +1038,13 @@ svg {
 .reviewer-project-list strong,
 .archived-settings strong,
 .conversation-list strong {
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .reviewer-project-list small,
 .archived-settings small,
 .conversation-list small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--xangi-font-micro);
   overflow-wrap: anywhere;
 }
 .archived-settings {
@@ -1058,7 +1071,7 @@ svg {
   min-height: 36px;
   padding: 0 9px;
   border-radius: 6px;
-  font-size: 11px;
+  font-size: var(--xangi-font-ui);
 }
 .archived-settings button {
   color: var(--accent);
@@ -1070,7 +1083,7 @@ svg {
 }
 .conversation-list em {
   color: var(--red);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   font-style: normal;
   overflow-wrap: anywhere;
 }
@@ -1082,7 +1095,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   margin-bottom: 12px;
 }
 .select-label select {
@@ -1109,7 +1122,7 @@ svg {
   border-radius: 6px;
   padding: 12px;
   background: var(--canvas);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   line-height: 1.8;
   color: var(--muted);
   overflow-wrap: anywhere;
@@ -1121,7 +1134,7 @@ svg {
 .modal-footnote {
   text-align: center;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   margin: 14px 0 0;
 }
 .modal-footnote a {
@@ -1141,7 +1154,7 @@ svg {
   color: var(--surface);
   padding: 0 14px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: var(--xangi-font-ui);
 }
 .danger-button:hover {
   opacity: 0.9;
@@ -1170,11 +1183,11 @@ svg {
   gap: 6px;
 }
 .history-list strong {
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   font-weight: 550;
 }
 .history-list small {
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
 }
 @media (min-width: 1700px) {
@@ -1194,7 +1207,7 @@ svg {
     gap: 10px;
   }
   .brand {
-    font-size: 18px;
+    font-size: var(--xangi-font-heading);
     gap: 8px;
   }
   .brand-mark {
@@ -1202,7 +1215,7 @@ svg {
     height: 29px;
   }
   .header-context {
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
   }
   .header-context .live-dot {
     display: none;
@@ -1225,7 +1238,7 @@ svg {
     padding: 18px;
   }
   .settings-field select {
-    font-size: 16px;
+    font-size: var(--xangi-font-reading);
   }
   .project-summary {
     grid-template-columns: minmax(0, 1fr);
@@ -1243,7 +1256,7 @@ svg {
     min-height: 44px;
   }
   .search-box input {
-    font-size: 16px;
+    font-size: var(--xangi-font-reading);
   }
   .file-item {
     min-height: 56px;
@@ -1257,13 +1270,13 @@ svg {
     padding-left: 24px;
   }
   .file-detail strong {
-    font-size: 14px;
+    font-size: var(--xangi-font-ui);
   }
   .file-detail > span {
-    font-size: 12px;
+    font-size: var(--xangi-font-caption);
   }
   .file-detail small {
-    font-size: 11px;
+    font-size: var(--xangi-font-micro);
   }
   .file-header {
     padding: 6px 10px 0;
@@ -1272,7 +1285,7 @@ svg {
   }
   .file-path {
     gap: 0;
-    font-size: 11px;
+    font-size: var(--xangi-font-micro);
   }
   .file-path > span {
     line-height: 1.6;
@@ -1310,14 +1323,14 @@ svg {
     gap: 7px;
   }
   .review-title {
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
   }
   .source-badge {
-    font-size: 9px;
+    font-size: var(--xangi-font-micro);
     padding: 3px 5px;
   }
   .conversation-link {
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
   }
   .mode-toolbar {
     padding: 0 20px;
@@ -1326,35 +1339,35 @@ svg {
     gap: 27px;
   }
   .mode-tabs button {
-    font-size: 13px;
+    font-size: var(--xangi-font-ui);
   }
   .diff-stat {
-    font-size: 11px;
+    font-size: var(--xangi-font-micro);
     gap: 7px;
   }
   .markdown-body {
     padding: 28px 25px 48px;
-    font-size: 16px;
+    font-size: var(--xangi-font-reading);
     line-height: 2;
   }
   .markdown-body h1 {
-    font-size: 25px;
+    font-size: var(--xangi-font-metric);
     margin-bottom: 23px;
     letter-spacing: -0.5px;
   }
   .markdown-body h2 {
-    font-size: 19px;
+    font-size: var(--xangi-font-heading);
     margin-top: 30px;
   }
   .markdown-body blockquote {
     margin: 23px 0;
     padding: 12px 15px;
-    font-size: 13px;
+    font-size: var(--xangi-font-reading);
   }
   .compare-heading {
     padding: 9px 14px;
     gap: 10px;
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
     min-height: 39px;
   }
   .compare-heading > span:first-child {
@@ -1379,18 +1392,18 @@ svg {
   }
   .undo-draft {
     padding: 0 9px;
-    font-size: 11px;
+    font-size: var(--xangi-font-micro);
   }
   .save-status {
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
   }
   .file-metrics {
-    font-size: 9px;
+    font-size: var(--xangi-font-micro);
     gap: 5px;
   }
   .message {
     padding: 9px 16px;
-    font-size: 11px;
+    font-size: var(--xangi-font-micro);
   }
   .modal {
     padding: 18px 20px;
@@ -1399,11 +1412,11 @@ svg {
     padding: 14px;
   }
   .share-text {
-    font-size: 16px;
+    font-size: var(--xangi-font-reading);
     min-height: 135px;
   }
   .select-label select {
-    font-size: 16px;
+    font-size: var(--xangi-font-reading);
   }
 }
 @media (max-width: 360px) {
@@ -1417,7 +1430,7 @@ svg {
     flex-wrap: wrap;
   }
   .file-path > span {
-    font-size: 10px;
+    font-size: var(--xangi-font-micro);
   }
   .file-actions .icon-button {
     min-width: 44px;
@@ -1438,7 +1451,7 @@ svg {
   }
   .save-button {
     padding: 0 10px;
-    font-size: 12px;
+    font-size: var(--xangi-font-ui);
   }
   .undo-draft {
     padding: 0 6px;
@@ -1517,7 +1530,7 @@ svg {
   justify-content: space-between;
   gap: 12px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .explained-diff-toolbar button {
   min-height: 32px;
@@ -1526,7 +1539,7 @@ svg {
   border-radius: 6px;
   background: var(--surface);
   color: var(--accent);
-  font-size: 11px;
+  font-size: var(--xangi-font-ui);
 }
 .explained-diff-location {
   display: flex;
@@ -1589,13 +1602,13 @@ svg {
 }
 .explanation-diff-heading strong {
   overflow-wrap: anywhere;
-  font-size: 15px;
+  font-size: var(--xangi-font-ui);
   line-height: 1.5;
 }
 .explanation-diff-heading span,
 .explanation-diff-heading > code {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-code);
 }
 .explanation-diff-heading > code {
   flex-shrink: 0;
@@ -1612,7 +1625,7 @@ svg {
   min-width: 100%;
   padding: 14px 0 28px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--xangi-font-code);
   line-height: 1.75;
 }
 .diff-row {
@@ -1665,7 +1678,7 @@ svg {
 }
 .pr-import label {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   font-weight: 650;
 }
 .pr-import > div {
@@ -1702,18 +1715,18 @@ svg {
   margin-bottom: 12px;
 }
 .change-notes-heading strong {
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
 }
 .change-notes-heading span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .change-notes-heading a {
   display: inline-flex;
   align-items: center;
   gap: 3px;
   width: 100%;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .change-note-list {
   display: grid;
@@ -1760,7 +1773,7 @@ svg {
   width: fit-content;
   margin-bottom: 6px;
   color: #9c5b00;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   font-weight: 700;
 }
 .severity-danger .review-warning {
@@ -1794,11 +1807,11 @@ svg {
   color: var(--accent);
   background: var(--accent-soft);
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .change-note h2 {
   margin: 1px 0 6px;
-  font-size: 13px;
+  font-size: var(--xangi-font-section);
   line-height: 1.4;
 }
 .change-note p,
@@ -1806,7 +1819,7 @@ svg {
   display: block;
   margin: 0 0 7px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   line-height: 1.65;
 }
 .change-note small {
@@ -1815,7 +1828,7 @@ svg {
 .change-note code {
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--xangi-font-code);
 }
 @media (max-width: 800px) {
   .diff-review-layout {
@@ -1863,7 +1876,7 @@ svg {
     gap: 7px;
   }
   .explanation-diff-code {
-    font-size: 12px;
+    font-size: var(--xangi-font-code);
   }
   .diff-row {
     grid-template-columns: 24px 36px 36px minmax(max-content, 1fr);
@@ -1876,7 +1889,7 @@ svg {
 .pdf-import input {
   width: 100%;
   min-width: 0;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .pdf-import small {
   display: block;
@@ -1896,7 +1909,7 @@ svg {
 .notion-help {
   min-width: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .notion-help summary {
   display: flex;
@@ -1963,7 +1976,7 @@ svg {
   overflow-wrap: anywhere;
 }
 .document-notes h2 {
-  font-size: 17px;
+  font-size: var(--xangi-font-section);
   margin: 0 0 16px;
 }
 .document-note {
@@ -1973,7 +1986,7 @@ svg {
   border-radius: 8px;
 }
 .document-note h3 {
-  font-size: 15px;
+  font-size: var(--xangi-font-ui);
   margin: 0 0 8px;
 }
 .document-note p {
@@ -2000,11 +2013,11 @@ svg {
   }
   .document-navigation {
     gap: 6px;
-    font-size: 12px;
+    font-size: var(--xangi-font-caption);
   }
   .notion-export {
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: var(--xangi-font-caption);
   }
 }
 
@@ -2044,7 +2057,7 @@ svg {
   margin-bottom: 12px;
 }
 .document-overview h2 {
-  font-size: 16px;
+  font-size: var(--xangi-font-section);
   margin: 0 0 8px;
 }
 .document-overview p {
@@ -2052,7 +2065,7 @@ svg {
   line-height: 1.7;
 }
 .document-overview-preview {
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   line-height: 1.6;
   color: var(--muted);
   display: -webkit-box;
@@ -2064,7 +2077,7 @@ svg {
 .review-context-input summary,
 .saved-review-context summary {
   cursor: pointer;
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
   color: var(--muted);
 }
 .review-context-input label {
@@ -2081,12 +2094,12 @@ svg {
   color: inherit;
   background: var(--surface);
   font: inherit;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .review-context-input small {
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .saved-review-context {
   max-width: 420px;
@@ -2095,7 +2108,7 @@ svg {
 .saved-review-context p {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   max-height: 200px;
   overflow-y: auto;
 }
@@ -2143,7 +2156,7 @@ svg {
 }
 .notion-settings p,
 .notion-settings small {
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   line-height: 1.7;
 }
 .notion-settings [role="alert"] {
@@ -2219,7 +2232,7 @@ svg {
 }
 .pr-description .markdown-body {
   padding: 12px 0 0;
-  font-size: 14px;
+  font-size: var(--xangi-font-reading);
 }
 
 @media (min-width: 801px) {
@@ -2272,11 +2285,11 @@ svg {
 }
 .pr-overview-kicker {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .pr-overview-heading h1 {
   margin: 6px 0 16px;
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: var(--xangi-font-heading);
   line-height: 1.3;
 }
 .pr-overview-actions {
@@ -2352,7 +2365,7 @@ svg {
 .pr-file-heading strong {
   overflow-wrap: anywhere;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
 }
 .pr-file-heading > div {
   display: flex;
@@ -2419,7 +2432,7 @@ svg {
   padding: 5px 14px;
   background: var(--accent-soft);
   color: var(--accent-hover);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .pr-inline-comment {
   width: min(760px, calc(100vw - 430px));
@@ -2446,7 +2459,7 @@ svg {
 }
 .pr-inline-comment-heading span {
   color: var(--red);
-  font-size: 11px;
+  font-size: var(--xangi-font-micro);
 }
 .pr-inline-comment p {
   margin: 6px 0 0;
@@ -2499,7 +2512,7 @@ svg {
   }
   .studio-primary-nav a {
     padding: 0 10px;
-    font-size: 12px;
+    font-size: var(--xangi-font-ui);
   }
 }
 
@@ -2514,7 +2527,7 @@ svg {
   align-items: center;
   gap: 4px;
   min-height: 44px;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   line-height: 1.4;
 }
 
@@ -2556,7 +2569,7 @@ svg {
   margin-bottom: 12px;
 }
 .repository-overview .pr-overview-heading h1 {
-  font-size: 20px;
+  font-size: var(--xangi-font-heading);
   margin: 0;
   overflow-wrap: anywhere;
 }
@@ -2577,7 +2590,7 @@ svg {
   display: none;
 }
 .repository-navigation h2 {
-  font-size: 14px;
+  font-size: var(--xangi-font-section);
   margin: 0;
 }
 .repository-navigation h2 small {
@@ -2605,7 +2618,7 @@ svg {
 .repository-navigation label {
   display: grid;
   gap: 6px;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
   margin-block: 12px;
 }
 .repository-navigation input {
@@ -2692,11 +2705,11 @@ svg {
   overflow-wrap: anywhere;
 }
 .software-overview h2 {
-  font-size: 20px;
+  font-size: var(--xangi-font-section);
   margin: 24px 0 12px;
 }
 .software-overview h3 {
-  font-size: 16px;
+  font-size: var(--xangi-font-ui);
   margin: 0 0 8px;
 }
 .software-overview p {
@@ -2710,7 +2723,7 @@ svg {
 }
 .software-metadata {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
 }
 .software-revision {
   display: block;
@@ -2791,7 +2804,7 @@ svg {
   }
   .software-edges li {
     gap: 8px;
-    font-size: 12px;
+    font-size: var(--xangi-font-caption);
   }
 }
 
@@ -2807,7 +2820,7 @@ svg {
   padding: 12px 18px;
   border-bottom: 1px solid var(--line);
   color: var(--muted);
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
 }
 .html-preview-toolbar button {
   padding: 8px 12px;
@@ -2827,12 +2840,28 @@ svg {
 }
 .html-preview-notes {
   overflow-wrap: anywhere;
-  font-size: 13px;
+  font-size: var(--xangi-font-ui);
 }
 
 .html-preview-caption {
   margin: 0;
   padding: 8px 18px;
-  font-size: 12px;
+  font-size: var(--xangi-font-caption);
   color: var(--muted);
+}
+
+/* Shared filer density. Keep article/report contents and editor geometry local. */
+body {
+  font-family: var(--xangi-font-family);
+  font-size: var(--xangi-font-ui);
+}
+
+@media (max-width: 768px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
+      [type="file"]
+    ),
+  textarea,
+  select {
+    font-size: var(--xangi-font-reading);
+  }
 }
